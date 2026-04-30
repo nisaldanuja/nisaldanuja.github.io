@@ -1,1 +1,234 @@
-# nisaldanuja.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nisal Ranasinghe | Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#0b1a2b,#0f2438);
+    color:#e6edf3;
+}
+
+header{
+    text-align:center;
+    padding:40px 20px;
+    border-bottom:1px solid #1f3a52;
+    animation:fadeDown 1s ease;
+}
+
+h1{
+    font-size:30px;
+    background:linear-gradient(90deg,#4cc9f0,#00b4d8);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+header p{color:#9fb3c8;margin-top:5px;}
+
+nav{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    background:#0f2438;
+    padding:12px;
+    position:sticky;
+    top:0;
+}
+
+nav a{
+    color:#9fb3c8;
+    text-decoration:none;
+    position:relative;
+}
+
+nav a:hover{color:#4cc9f0;}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    bottom:-4px;
+    left:0;
+    width:0%;
+    height:2px;
+    background:#4cc9f0;
+    transition:.3s;
+}
+
+nav a:hover::after{width:100%;}
+
+section{
+    max-width:900px;
+    margin:auto;
+    padding:30px 20px;
+    animation:fadeUp 1s ease;
+}
+
+h2{
+    border-left:4px solid #4cc9f0;
+    padding-left:10px;
+    margin-bottom:15px;
+}
+
+.card{
+    background:#162d44;
+    padding:15px;
+    margin-top:10px;
+    border-radius:12px;
+    border:1px solid #1f3a52;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.6);
+    border-color:#4cc9f0;
+}
+
+.card:hover p,.card:hover li{color:#d9f3ff;}
+
+ul{padding-left:20px;}
+
+.icon{
+    color:#4cc9f0;
+    margin-right:8px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    border-top:1px solid #1f3a52;
+    margin-top:30px;
+    color:#8aa4bd;
+}
+
+footer:hover{color:#cdeaff;}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(20px);} 
+    to{opacity:1;transform:translateY(0);} 
+}
+
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-20px);} 
+    to{opacity:1;transform:translateY(0);} 
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<p>
+<h1>Nisal Danuja Ranasinghe
+<a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" style="color:#4cc9f0;text-decoration:none;"> 
+<i class="fa-brands fa-linkedin icon"></i></h1> </a> </p>
+<p>Student | ICT Enthusiast | Leader</p>
+</header>
+
+<nav>
+<a href="#summary">Summary</a>
+<a href="#education">Education</a>
+<a href="#skills">Skills</a>
+<a href="#achievements">Achievements</a>
+<a href="#activities">Activities</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section>
+
+<h2 id="summary"><i class="fa-solid fa-user icon"></i>Profile Summary</h2>
+<div class="card">
+<p>Motivated student with strong interests in ICT, leadership, and media activities such as radio presenting and music. Experienced in organizing events and actively participating in school societies.</p>
+</div>
+
+<h2><i class="fa-solid fa-id-card icon"></i>Personal Information</h2>
+<div class="card">
+<p><strong>Age:</strong> 15</p>
+<p><strong>Date of Birth:</strong> 24-03-2011</p>
+<p><strong>Nationality:</strong> Sri Lankan</p>
+<p><strong>Religion:</strong> Buddhist</p>
+<p><strong>Address:</strong> No. 95/B, Maruddana, Gallellagama, Kandy</p>
+</div>
+
+<h2 id="education"><i class="fa-solid fa-graduation-cap icon"></i>Education</h2>
+<div class="card">
+<p><strong>School:</strong> <b>Lexicon International School – Kandy</b></p>
+<p>Grade 10 - English Medium</p>
+<ul>
+<li>Information Communication Technology</li>
+<li>Commerce</li>
+<li>Western Music</li>
+<li>Mathematics</li>
+<li>Science</li>
+<li>Sinhala</li>
+<li>English</li>
+<li>Buddhism</li>
+<li>History</li>
+</ul>
+</div>
+
+<h2 id="skills"><i class="fa-solid fa-lightbulb icon"></i>Skills</h2>
+<div class="card">
+<ul>
+<li>Leadership & Teamwork</li>
+<li>Event Organization</li>
+<li>Public Speaking</li>
+<li>Communication Skills</li>
+<li>Basic Web Development</li>
+<li>ICT Knowledge</li>
+</ul>
+</div>
+
+<h2 id="achievements"><i class="fa-solid fa-trophy icon"></i>Achievements</h2>
+<div class="card">
+<ul>
+<li>Western Music - Merit (2024)</li>
+<li>General Proficiency - Merit (2024)</li>
+<li>Sinhala Day Singing – 2nd Place (2025)</li>
+<li>Sinhala Day Oratory – 2nd Place (2025)</li>
+</ul>
+</div>
+
+<h2 id="activities"><i class="fa-solid fa-people-group icon"></i>Leadership & Activities</h2>
+<div class="card">
+<ul>
+<li>School Senior Monitor</li>
+<li>Senior Corporal – School Western Band</li>
+<li>Event Organizer - IT Society</li>
+<li>Volleyball Team Member</li>
+<li>Astronomy Society Member</li>
+<li>Chess Team Member</li>
+</ul>
+</div>
+
+<h2><i class="fa-solid fa-heart icon"></i>Interests</h2>
+<div class="card">
+<ul>
+<li>Software Engineering</li>
+<li>Web Development</li>
+<li>Radio Broadcasting</li>
+<li>Music & Western Band</li>
+</ul>
+</div>
+
+<h2 id="contact"><i class="fa-solid fa-address-book icon"></i>Contact</h2>
+<div class="card">
+<p><i class="fa-brands fa-linkedin icon"></i>
+<a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" style="color:#4cc9f0;">LinkedIn Profile</a></p>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
+</footer>
+
+</body>
+</html>
