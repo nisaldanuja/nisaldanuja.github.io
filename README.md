@@ -84,13 +84,7 @@ h2{
     transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.6);
-    border-color:#4cc9f0;
-}
 
-.card:hover p,.card:hover li{color:#d9f3ff;}
 
 ul{padding-left:20px;}
 
