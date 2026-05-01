@@ -155,7 +155,7 @@ footer {
 <section>
     <h2>Get In Touch</h2>
 
-    <form action="https://formspree.io/f/xeenooyd" method="POST">
+    <form action="https://formspree.io/f/xeenooyd" method="POST" onsubmit="showPopup()>
         <div class="form-group">
             <label>Your Name*</label>
             <input type="text" name="name">
@@ -187,5 +187,11 @@ footer {
     <p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
 </footer>
 
+<script>
+    function showPopup() {
+        alert("Thank you, Nisal! Your message is being sent. You will now be redirected to the confirmation page.");
+    }
+</script>
+	
 </body>
 </html>
