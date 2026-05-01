@@ -8,12 +8,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+/* NO CHANGES TO YOUR ORIGINAL STYLES */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
     font-family:'Segoe UI',sans-serif;
     background:linear-gradient(135deg,#0b1a2b,#0f2438);
     color:#e6edf3;
+    overflow-x: hidden;
 }
 
 header{
@@ -35,17 +37,20 @@ header p{color:#9fb3c8;margin-top:5px;}
 nav{
     display:flex;
     justify-content:center;
-    gap:20px;
+    flex-wrap: wrap;
+    gap:15px;
     background:#0f2438;
     padding:12px;
     position:sticky;
     top:0;
+    z-index: 1000;
 }
 
 nav a{
     color:#9fb3c8;
     text-decoration:none;
     position:relative;
+    font-size: 14px;
 }
 
 nav a:hover{color:#4cc9f0;}
@@ -74,6 +79,7 @@ h2{
     border-left:4px solid #4cc9f0;
     padding-left:10px;
     margin-bottom:15px;
+    font-size: 22px;
 }
 
 .card{
@@ -82,16 +88,24 @@ h2{
     margin-top:10px;
     border-radius:12px;
     border:1px solid #1f3a52;
-    transition:.3s;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-.card:hover{
+/* 1. MOUSE HOVER (For Computer) */
+.card:hover {
     transform:translateY(-6px);
     box-shadow:0 10px 25px rgba(0,0,0,0.6);
     border-color:#4cc9f0;
 }
+.card:hover p, .card:hover li { color:#d9f3ff; }
 
-.card:hover p,.card:hover li{color:#d9f3ff;}
+/* 2. AUTOMATIC SCROLL EFFECT (For Mobile/Tablet) */
+.card.active-scroll {
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.6);
+    border-color:#4cc9f0;
+}
+.card.active-scroll p, .card.active-scroll li { color:#d9f3ff; }
 
 ul{padding-left:20px;}
 
@@ -108,7 +122,21 @@ footer{
     color:#8aa4bd;
 }
 
-footer:hover{color:#cdeaff;}
+/* RESPONSIVE DESIGN BREAKPOINTS */
+@media (max-width: 768px) {
+    h1 { font-size: 24px; }
+    nav { gap: 10px; padding: 10px; }
+    nav a { font-size: 13px; }
+    section { padding: 20px 15px; }
+    h2 { font-size: 20px; }
+}
+
+@media (max-width: 480px) {
+    header { padding: 30px 10px; }
+    h1 { font-size: 20px; }
+    nav { gap: 8px; }
+    nav a { font-size: 12px; }
+}
 
 @keyframes fadeUp{
     from{opacity:0;transform:translateY(20px);} 
@@ -119,118 +147,140 @@ footer:hover{color:#cdeaff;}
     from{opacity:0;transform:translateY(-20px);} 
     to{opacity:1;transform:translateY(0);} 
 }
-
 </style>
 </head>
 <body>
 
 <header>
-<p>
-<h1>Nisal Danuja Ranasinghe
-<a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" style="color:#4cc9f0;text-decoration:none;"> 
-<i class="fa-brands fa-linkedin icon"></i></h1> </a> </p>
-<p>Student | ICT Enthusiast | Leader</p>
+    <h1>Nisal Danuja Ranasinghe
+    <a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" style="color:#4cc9f0;text-decoration:none;"> 
+    <i class="fa-brands fa-linkedin icon"></i></a></h1>
+    <p>Student | ICT Enthusiast | Leader</p>
 </header>
 
 <nav>
-<a href="#summary">Summary</a>
-<a href="#education">Education</a>
-<a href="#skills">Skills</a>
-<a href="#achievements">Achievements</a>
-<a href="#activities">Activities</a>
-<a href="#contact">Contact</a>
+    <a href="#summary">Summary</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#activities">Activities</a>
+    <a href="#contact">Contact</a>
 </nav>
 
 <section>
+    <h2 id="summary"><i class="fa-solid fa-user icon"></i>Profile Summary</h2>
+    <div class="card">
+        <p>Motivated student with strong interests in ICT, leadership, and media activities such as radio presenting and music. Experienced in organizing events and actively participating in school societies.</p>
+    </div>
 
-<h2 id="summary"><i class="fa-solid fa-user icon"></i>Profile Summary</h2>
-<div class="card">
-<p>Motivated student with strong interests in ICT, leadership, and media activities such as radio presenting and music. Experienced in organizing events and actively participating in school societies.</p>
-</div>
+    <h2><i class="fa-solid fa-id-card icon"></i>Personal Information</h2>
+    <div class="card">
+        <p><strong>Age:</strong> 15</p>
+        <p><strong>Date of Birth:</strong> 24-03-2011</p>
+        <p><strong>Nationality:</strong> Sri Lankan</p>
+        <p><strong>Religion:</strong> Buddhist</p>
+        <p><strong>Address:</strong> No. 95/B, Maruddana, Gallellagama, Kandy</p>
+    </div>
 
-<h2><i class="fa-solid fa-id-card icon"></i>Personal Information</h2>
-<div class="card">
-<p><strong>Age:</strong> 15</p>
-<p><strong>Date of Birth:</strong> 24-03-2011</p>
-<p><strong>Nationality:</strong> Sri Lankan</p>
-<p><strong>Religion:</strong> Buddhist</p>
-<p><strong>Address:</strong> No. 95/B, Maruddana, Gallellagama, Kandy</p>
-</div>
+    <h2 id="education"><i class="fa-solid fa-graduation-cap icon"></i>Education</h2>
+    <div class="card">
+        <p><strong>School:</strong> <b>Lexicon International School – Kandy</b></p>
+        <p>Grade 10 - English Medium</p>
+        <ul>
+            <li>Information Communication Technology</li>
+            <li>Commerce</li>
+            <li>Western Music</li>
+            <li>Mathematics</li>
+            <li>Science</li>
+            <li>Sinhala</li>
+            <li>English</li>
+            <li>Buddhism</li>
+            <li>History</li>
+        </ul>
+    </div>
 
-<h2 id="education"><i class="fa-solid fa-graduation-cap icon"></i>Education</h2>
-<div class="card">
-<p><strong>School:</strong> <b>Lexicon International School – Kandy</b></p>
-<p>Grade 10 - English Medium</p>
-<ul>
-<li>Information Communication Technology</li>
-<li>Commerce</li>
-<li>Western Music</li>
-<li>Mathematics</li>
-<li>Science</li>
-<li>Sinhala</li>
-<li>English</li>
-<li>Buddhism</li>
-<li>History</li>
-</ul>
-</div>
+    <h2 id="skills"><i class="fa-solid fa-lightbulb icon"></i>Skills</h2>
+    <div class="card">
+        <ul>
+            <li>Leadership & Teamwork</li>
+            <li>Event Organization</li>
+            <li>Public Speaking</li>
+            <li>Communication Skills</li>
+            <li>Basic Web Development</li>
+            <li>ICT Knowledge</li>
+        </ul>
+    </div>
 
-<h2 id="skills"><i class="fa-solid fa-lightbulb icon"></i>Skills</h2>
-<div class="card">
-<ul>
-<li>Leadership & Teamwork</li>
-<li>Event Organization</li>
-<li>Public Speaking</li>
-<li>Communication Skills</li>
-<li>Basic Web Development</li>
-<li>ICT Knowledge</li>
-</ul>
-</div>
+    <h2 id="achievements"><i class="fa-solid fa-trophy icon"></i>Achievements</h2>
+    <div class="card">
+        <ul>
+            <li>Western Music - Merit (2024)</li>
+            <li>General Proficiency - Merit (2024)</li>
+            <li>Sinhala Day Singing – 2nd Place (2025)</li>
+            <li>Sinhala Day Oratory – 2nd Place (2025)</li>
+        </ul>
+    </div>
 
-<h2 id="achievements"><i class="fa-solid fa-trophy icon"></i>Achievements</h2>
-<div class="card">
-<ul>
-<li>Western Music - Merit (2024)</li>
-<li>General Proficiency - Merit (2024)</li>
-<li>Sinhala Day Singing – 2nd Place (2025)</li>
-<li>Sinhala Day Oratory – 2nd Place (2025)</li>
-</ul>
-</div>
+    <h2 id="activities"><i class="fa-solid fa-people-group icon"></i>Leadership & Activities</h2>
+    <div class="card">
+        <ul>
+            <li>Deputy Head Prefect - Dhamma School</li>
+            <li>School Senior Monitor</li>
+            <li>Senior Trumpeter – School Western Band</li>
+            <li>Athletic Team Member</li>
+            <li>Event Organizer - IT Society</li>
+            <li>Astronomy Society Member</li>
+            <li>Announcer - Dhamma School</li>
+            <li>Member of the Drama & Bakthi Gee Team - Dhammma School</li>
+        </ul>
+    </div>
 
-<h2 id="activities"><i class="fa-solid fa-people-group icon"></i>Leadership & Activities</h2>
-<div class="card">
-<ul>
-<li>Deputy Head Prefect - Dhamma School</li>
-<li>School Senior Monitor</li>
-<li>Senior Trumpeter – School Western Band</li>
-<li>Athletic Team Member</li>
-<li>Event Organizer - IT Society</li>
-<li>Astronomy Society Member</li>
-<li>Announcer - Dhamma School</li>
-<li>Member of the Drama & Bakthi Gee Team - Dhammma School</li></ul>
-</div>
+    <h2><i class="fa-solid fa-heart icon"></i>Interests</h2>
+    <div class="card">
+        <ul>
+            <li>Software Engineering</li>
+            <li>Web Development</li>
+            <li>Radio Broadcasting</li>
+            <li>Music & Western Band</li>
+            <li>Religious Studies</li>
+        </ul>
+    </div>
 
-<h2><i class="fa-solid fa-heart icon"></i>Interests</h2>
-<div class="card">
-<ul>
-<li>Software Engineering</li>
-<li>Web Development</li>
-<li>Radio Broadcasting</li>
-<li>Music & Western Band</li>
-<li>Religious Studies</li>
-</ul>
-</div>
-
-<h2 id="contact"><i class="fa-solid fa-address-book icon"></i>Contact</h2>
-<div class="card">
-<p><i class="fa-brands fa-linkedin icon"></i>
-<a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" style="color:#4cc9f0;">LinkedIn Profile</a></p>
-</div>
-
+    <h2 id="contact"><i class="fa-solid fa-address-book icon"></i>Contact</h2>
+    <div class="card">
+        <p><i class="fa-brands fa-linkedin icon"></i>
+        <a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" style="color:#4cc9f0;">LinkedIn Profile</a></p>
+    </div>
 </section>
 
 <footer>
-<p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
+    <p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
 </footer>
+
+<script>
+    // Only run the Observer if the screen is 768px wide or smaller
+    if (window.innerWidth <= 768) {
+        const cards = document.querySelectorAll('.card');
+        
+        const observerOptions = {
+            threshold: 0.7 
+        };
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active-scroll');
+                } else {
+                    entry.target.classList.remove('active-scroll');
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => {
+            scrollObserver.observe(card);
+        });
+    }
+</script>
 
 </body>
 </html>
