@@ -216,6 +216,25 @@ button:hover {
     background: #00b4d8;
     transform: translateY(-2px);
 }
+
+	.social-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: #ffffff; /* Change to your theme color */
+  transition: transform 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #0077b5; /* LinkedIn Blue, for example */
+  transform: translateY(-3px); /* Subtle lift effect */
+}
 	
 </style>
 	
@@ -359,6 +378,19 @@ button:hover {
     
 <footer>
     <p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
+
+	  <div class="social-links">
+    <a href="https://linkedin.com" target="_blank" class="social-icon">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com" target="_blank" class="social-icon">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://twitter.com" target="_blank" class="social-icon">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+	
 </footer>
 
 <script>
