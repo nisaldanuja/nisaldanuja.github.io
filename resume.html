@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* Base styles matching your theme */
-        body {
-            background-color: #0f172a;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+
+header{
+    text-align:center;
+    padding:40px 20px;
+    border-bottom:1px solid #1f3a52;
+    animation:fadeDown 1s ease;
+}
+
+        header p{color:#9fb3c8;margin-top:5px;}
+        
+  body{
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#0b1a2b,#0f2438);
+    color:#e6edf3;
+    overflow-x: hidden;
+}
 
         /* Resume Content Wrapper */
         .resume-container {
@@ -75,9 +81,24 @@
 </head>
 <body>
 
-    <header style="padding: 20px; border-bottom: 1px solid #334155; text-align: center;">
-        <h1 style="color: #4cc9f0; margin: 0;">My Portfolio</h1>
-    </header>
+  <header>
+    <h1>Nisal Danuja Ranasinghe</h1>
+	 <p>Student | ICT Enthusiast | Leader</p>
+   <p> <h1><a href="profile.html" target="_blank" style="color:#4cc9f0;text-decoration:none;"> 
+    <i class="fa-brands fa-linkedin icon"></i></a>
+	    	<a href="contact.html" target="_blank" style="color:#4cc9f0;text-decoration:none;"> 
+    <i class="fa-solid fa-envelope"></i></a>
+
+	</h1></p>
+</header>
+
+    <nav>
+	<a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+	<a href="resume.html">Resume</a>
+</nav>
+
+
 
     <main class="resume-container">
         
