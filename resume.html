@@ -76,6 +76,41 @@ header{
             height: 100%;
             border: none;
         }
+
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap:15px;
+    background:#0f2438;
+    padding:12px;
+    position:sticky;
+    top:0;
+    z-index: 1000;
+}
+
+nav a{
+    color:#9fb3c8;
+    text-decoration:none;
+    position:relative;
+    font-size: 14px;
+}
+
+nav a:hover{color:#4cc9f0;}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    bottom:-4px;
+    left:0;
+    width:0%;
+    height:2px;
+    background:#4cc9f0;
+    transition:.3s;
+}
+
+nav a:hover::after{width:100%;}
+		
     </style>
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
