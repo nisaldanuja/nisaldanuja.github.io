@@ -118,6 +118,38 @@ nav a:hover::after{width:100%;}
     color:transparent;
 }
 
+		/* UPDATED FOOTER TO ALIGN IN ONE LINE */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 30px auto 0 auto;
+    padding: 20px;
+    border-top: 1px solid #1f3a52;
+    color: #8aa4bd;
+}
+
+		.social-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: #ffffff; /* Change to your theme color */
+  transition: transform 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #0077b5; /* LinkedIn Blue, for example */
+  transform: translateY(-3px); /* Subtle lift effect */
+}
+	
+
 		
     </style>
     <link rel="icon" type="image/png" href="favicon.png">
@@ -157,9 +189,19 @@ nav a:hover::after{width:100%;}
 
     </main>
 
-    <footer style="padding: 20px; border-top: 1px solid #334155; text-align: center; font-size: 0.9rem; color: #64748b;">
-        <p>&copy; 2026 Nisal Danuja. All Rights Reserved.</p>
-    </footer>
+<footer>
+    <p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
+
+	  <div class="social-links">
+    <a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" class="social-icon">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/nisaldanuja" target="_blank" class="social-icon">
+      <i class="fab fa-github"></i>
+    </a>
+  </div>
+	
+</footer>
 
 </body>
 </html>
