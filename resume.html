@@ -4,66 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume | Nisal Danuja</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <style>
+        /* CSS VARIABLES MANAGEMENT FOR LIGHT/DARK THEMES */
+        :root {
+            /* Default Dark Mode Theme Colors */
+            --bg-gradient: linear-gradient(135deg, #0b1a2b, #0f2438);
+            --text-main: #e6edf3;
+            --text-muted: #9fb3c8;
+            --nav-bg: #0f2438;
+            --border-color: #1f3a52;
+            --accent-color: #4cc9f0;
+            --accent-hover: #00b4d8;
+            --header-gradient: linear-gradient(90deg, #4cc9f0, #00b4d8);
+            --footer-text: #8aa4bd;
+            --social-white: #ffffff;
+            --preview-bg: #1e293b;
+            --preview-border: #334155;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
 
-header{
-    text-align:center;
-    padding:40px 20px;
-    border-bottom:1px solid #1f3a52;
-    animation:fadeDown 1s ease;
-}
+        body.light-mode {
+            /* Preview Light Mode Theme Colors */
+            --bg-gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --nav-bg: #ffffff;
+            --border-color: #cbd5e1;
+            --accent-color: #0284c7; /* Darker blue for visibility on light surfaces */
+            --accent-hover: #0369a1;
+            --header-gradient: linear-gradient(90deg, #0284c7, #0369a1);
+            --footer-text: #475569;
+            --social-white: #1e293b;
+            --preview-bg: #ffffff;
+            --preview-border: #cbd5e1;
+            --shadow-color: rgba(148, 163, 184, 0.3);
+        }
 
-        header p{color:#9fb3c8;margin-top:5px;}
-        
+        *{margin:0;padding:0;box-sizing:border-box;}
 
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--border-color);
+            animation: fadeDown 1s ease;
+            transition: border-color 0.3s ease;
+        }
+
+        h1 {
+            font-size: 30px;
+            background: var(--header-gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+            transition: background 0.3s ease;
+        }
+
+        header p {
+            color: var(--text-muted);
+            margin-top: 5px;
+            transition: color 0.3s ease;
+        }
+
+        /* Cleaned Header Social Links Container */
+        .header-social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header-social-links a {
+            color: var(--accent-color);
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .header-social-links a:hover {
+            color: var(--text-main);
+            transform: translateY(-3px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: var(--nav-bg);
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            position: relative;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover { color: var(--accent-color); }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent-color);
+            transition: .3s;
+        }
+
+        nav a:hover::after { width: 100%; }
 
         /* Resume Content Wrapper */
         .resume-container {
             max-width: 800px;
+            width: 100%;
             margin: 40px auto;
             padding: 0 20px;
-            flex: 1; /* Pushes footer to the bottom */
+            flex: 1; /* Pushes footer neatly to the bottom */
+            animation: fadeUp 1s ease;
         }
 
         /* Top Bar containing the Download Button on the Right */
         .resume-actions {
             display: flex;
-            justify-content: flex-end; /* Aligns to the right corner */
+            justify-content: flex-end; 
             margin-bottom: 20px;
         }
 
         /* Download Button Styling */
         .download-btn {
             background-color: transparent;
-            color: #4cc9f0;
-            border: 2px solid #4cc9f0;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             display: inline-flex;
             align-items: center;
-            gap: 8px; /* Space between icon and text */
+            gap: 8px; 
             transition: all 0.3s ease;
         }
 
         .download-btn:hover {
-            background-color: #4cc9f0;
-            color: #0f172a;
+            background-color: var(--accent-color);
+            color: #0b1a2b;
             cursor: pointer;
         }
 
-        /* Medium Sized Resume Preview Panel */
+        /* Resume Preview Panel */
         .resume-preview {
-            background-color: #1e293b;
-            border: 1px solid #334155;
+            background-color: var(--preview-bg);
+            border: 1px solid var(--preview-border);
             border-radius: 8px;
             width: 100%;
-            height: 600px; /* Gives it a medium portrait height */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            height: 600px; 
+            box-shadow: 0 4px 15px var(--shadow-color);
             overflow: hidden;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .resume-preview iframe {
@@ -72,363 +189,167 @@ header{
             border: none;
         }
 
-nav{
-    display:flex;
-    justify-content:center;
-    flex-wrap: wrap;
-    gap:15px;
-    background:#0f2438;
-    padding:12px;
-    position:sticky;
-    top:0;
-    z-index: 1000;
-}
+        /* UPDATED FOOTER TO ALIGN IN ONE LINE */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 900px;
+            width: 100%;
+            margin: 30px auto 0 auto;
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--footer-text);
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
 
-nav a{
-    color:#9fb3c8;
-    text-decoration:none;
-    position:relative;
-    font-size: 14px;
-}
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-nav a:hover{color:#4cc9f0;}
+        .social-icon {
+            font-size: 24px;
+            color: var(--social-white); 
+            transition: transform 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+        }
 
-nav a::after{
-    content:"";
-    position:absolute;
-    bottom:-4px;
-    left:0;
-    width:0%;
-    height:2px;
-    background:#4cc9f0;
-    transition:.3s;
-}
+        .social-icon:hover {
+            color: var(--accent-color); 
+            transform: translateY(-3px); 
+        }
 
-nav a:hover::after{width:100%;}
+        /* RESPONSIVE DESIGN BREAKPOINTS */
+        @media (max-width: 768px) {
+            h1 { font-size: 24px; }
+            nav { gap: 10px; padding: 10px; }
+            nav a { font-size: 13px; }
+            .resume-container { margin: 20px auto; }
+            .resume-preview { height: 500px; }
+            
+            footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
 
-		h1{
-    font-size:30px;
-    background:linear-gradient(90deg,#4cc9f0,#00b4d8);
-    -webkit-background-clip:text;
-    color:transparent;
-}
+        @media (max-width: 480px) {
+            header { padding: 30px 10px; }
+            h1 { font-size: 20px; }
+            nav { gap: 8px; }
+            nav a { font-size: 12px; }
+            .resume-preview { height: 400px; }
+        }
 
-		/* UPDATED FOOTER TO ALIGN IN ONE LINE */
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 900px;
-    margin: 30px auto 0 auto;
-    padding: 20px;
-    border-top: 1px solid #1f3a52;
-    color: #8aa4bd;
-}
+        @keyframes fadeUp{
+            from{opacity:0;transform:translateY(20px);} 
+            to{opacity:1;transform:translateY(0);} 
+        }
 
-		.social-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+        @keyframes fadeDown{
+            from{opacity:0;transform:translateY(-20px);} 
+            to{opacity:1;transform:translateY(0);} 
+        }
 
-.social-icon {
-  font-size: 24px;
-  color: #ffffff; /* Change to your theme color */
-  transition: transform 0.3s ease, color 0.3s ease;
-  text-decoration: none;
-}
+        /* FLOATING THEME TOGGLE BUTTON STYLE */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: #0b1a2b;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+        }
 
-.social-icon:hover {
-  color: #0077b5; /* LinkedIn Blue, for example */
-  transform: translateY(-3px); /* Subtle lift effect */
-}
-
-
-
-
-
-
-		
-/* NO CHANGES TO YOUR ORIGINAL STYLES */
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#0b1a2b,#0f2438);
-    color:#e6edf3;
-    overflow-x: hidden;
-}
-
-header{
-    text-align:center;
-    padding:40px 20px;
-    border-bottom:1px solid #1f3a52;
-    animation:fadeDown 1s ease;
-}
-
-h1{
-    font-size:30px;
-    background:linear-gradient(90deg,#4cc9f0,#00b4d8);
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-header p{color:#9fb3c8;margin-top:5px;}
-
-nav{
-    display:flex;
-    justify-content:center;
-    flex-wrap: wrap;
-    gap:15px;
-    background:#0f2438;
-    padding:12px;
-    position:sticky;
-    top:0;
-    z-index: 1000;
-}
-
-nav a{
-    color:#9fb3c8;
-    text-decoration:none;
-    position:relative;
-    font-size: 14px;
-}
-
-nav a:hover{color:#4cc9f0;}
-
-nav a::after{
-    content:"";
-    position:absolute;
-    bottom:-4px;
-    left:0;
-    width:0%;
-    height:2px;
-    background:#4cc9f0;
-    transition:.3s;
-}
-
-nav a:hover::after{width:100%;}
-
-section{
-    max-width:900px;
-    margin:auto;
-    padding:30px 20px;
-    animation:fadeUp 1s ease;
-}
-
-h2{
-    border-left:4px solid #4cc9f0;
-    padding-left:10px;
-    margin-bottom:15px;
-    font-size: 22px;
-}
-
-.card{
-    background:#162d44;
-    padding:15px;
-    margin-top:10px;
-    border-radius:12px;
-    border:1px solid #1f3a52;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-}
-
-/* 1. MOUSE HOVER (For Computer) */
-.card:hover {
-    transform:translateY(-6px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.6);
-    border-color:#4cc9f0;
-}
-.card:hover p, .card:hover li { color:#d9f3ff; }
-
-/* 2. AUTOMATIC SCROLL EFFECT (For Mobile/Tablet) */
-.card.active-scroll {
-    transform:translateY(-6px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.6);
-    border-color:#4cc9f0;
-}
-.card.active-scroll p, .card.active-scroll li { color:#d9f3ff; }
-
-ul{padding-left:20px;}
-
-.icon{
-    color:#4cc9f0;
-    margin-right:8px;
-}
-
-/* UPDATED FOOTER TO ALIGN IN ONE LINE */
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 900px;
-    margin: 30px auto 0 auto;
-    padding: 20px;
-    border-top: 1px solid #1f3a52;
-    color: #8aa4bd;
-}
-
-/* RESPONSIVE DESIGN BREAKPOINTS */
-@media (max-width: 768px) {
-    h1 { font-size: 24px; }
-    nav { gap: 10px; padding: 10px; }
-    nav a { font-size: 13px; }
-    section { padding: 20px 15px; }
-    h2 { font-size: 20px; }
-    
-    /* Responsive adjustment for footer on tablets/mobile */
-    footer {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    header { padding: 30px 10px; }
-    h1 { font-size: 20px; }
-    nav { gap: 8px; }
-    nav a { font-size: 12px; }
-}
-
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(20px);} 
-    to{opacity:1;transform:translateY(0);} 
-}
-
-@keyframes fadeDown{
-    from{opacity:0;transform:translateY(-20px);} 
-    to{opacity:1;transform:translateY(0);} 
-}
-
-	/* FORM SECTION */
-.background_form {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #162d44;
-    border-radius: 12px;
-    border: 1px solid #1f3a52;
-}
-	
-.background_form > h2 {
-    color: #4cc9f0;
-    margin-bottom: 20px;
-    text-align: center;
-	border-left: none !important;
-}
-
-/* FORM */
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #9fb3c8;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #1f3a52;
-    background: #0b1a2b;
-    color: white;
-    font-size: 16px;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    background: #4cc9f0;
-    color: #0b1a2b;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #00b4d8;
-    transform: translateY(-2px);
-}
-
-/* UPDATED SOCIAL LINKS FOR IN-LINE LAYOUT */
-.social-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.social-icon {
-  font-size: 24px;
-  color: #ffffff; /* Change to your theme color */
-  transition: transform 0.3s ease, color 0.3s ease;
-  text-decoration: none;
-}
-
-.social-icon:hover {
-  color: #0077b5; /* LinkedIn Blue, for example */
-  transform: translateY(-3px); /* Subtle lift effect */
-}
-	
-
-		
+        .theme-toggle-btn:hover {
+            transform: scale(1.1);
+        }
     </style>
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
 
-  <header>
+<header>
     <h1>Nisal Danuja Ranasinghe</h1>
-	 <p>Student | ICT Enthusiast | Leader</p>
-   <p> <h1><a href="profile.html" target="_blank" style="color:#4cc9f0;text-decoration:none;"> 
-    <i class="fa-brands fa-linkedin icon"></i></a>
-	    	<a href="contact.html" target="_blank" style="color:#4cc9f0;text-decoration:none;"> 
-    <i class="fa-solid fa-envelope"></i></a>
-
-	</h1></p>
+    <p>Student | ICT Enthusiast | Leader</p>
+    
+    <div class="header-social-links">
+        <a href="profile.html" target="_blank" title="LinkedIn Profile"> 
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="contact.html" title="Contact Email"> 
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    </div>
 </header>
 
-    <nav>
-	<a href="index.html">Home</a>
+<nav>
+    <a href="index.html">Home</a>
     <a href="contact.html">Contact</a>
-	<a href="resume.html">Resume</a>
+    <a href="resume.html">Resume</a>
 </nav>
 
+<main class="resume-container">
+    <div class="resume-actions">
+        <a href="my-resume.pdf" download="Nisal_Danuja_Resume.pdf" class="download-btn">
+            <i class="fa-solid fa-download"></i> Download Resume
+        </a>
+    </div>
 
-
-    <main class="resume-container">
-        
-        <div class="resume-actions">
-            <a href="my-resume.pdf" download="Nisal_Danuja_Resume.pdf" class="download-btn">
-                <i class="fa-solid fa-download"></i> Download Resume
-            </a>
-        </div>
-
-        <div class="resume-preview">
-            <iframe src="my-resume.pdf#toolbar=0" title="Resume Preview"></iframe>
-        </div>
-
-    </main>
+    <div class="resume-preview">
+        <iframe src="my-resume.pdf#toolbar=0" title="Resume Preview"></iframe>
+    </div>
+</main>
 
 <footer>
     <p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
 
-	  <div class="social-links">
-    <a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" class="social-icon">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="https://github.com/nisaldanuja" target="_blank" class="social-icon">
-      <i class="fab fa-github"></i>
-    </a>
-  </div>
-	
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/nisaldanuja" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
 </footer>
+
+<button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Light and Dark Theme">
+    <i class="fa-solid fa-sun"></i>
+</button>
+
+<script>
+    // Theme Switcher Logic 
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = themeToggleBtn.querySelector('i');
+
+    themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon'); // Switch to moon icon in light mode
+        } else {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun'); // Switch back to sun icon in dark mode
+        }
+    });
+</script>
 
 </body>
 </html>
