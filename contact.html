@@ -2,280 +2,346 @@
 <html lang="en">
 <head>
 
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1EYR6J96Z1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EYR6J96Z1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-1EYR6J96Z1');
-</script>
+      gtag('config', 'G-1EYR6J96Z1');
+    </script>
 	
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nisal Ranasinghe | Contact</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisal Ranasinghe | Contact</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-/* NO CHANGES TO YOUR ORIGINAL STYLES */
-*{margin:0;padding:0;box-sizing:border-box;}
+    <style>
+        /* CSS VARIABLES MANAGEMENT FOR LIGHT/DARK THEMES */
+        :root {
+            /* Default Dark Mode Theme Colors */
+            --bg-gradient: linear-gradient(135deg, #0b1a2b, #0f2438);
+            --text-main: #e6edf3;
+            --text-muted: #9fb3c8;
+            --nav-bg: #0f2438;
+            --card-bg: #162d44;
+            --border-color: #1f3a52;
+            --accent-color: #4cc9f0;
+            --accent-hover: #00b4d8;
+            --input-bg: #0b1a2b;
+            --header-gradient: linear-gradient(90deg, #4cc9f0, #00b4d8);
+            --footer-text: #8aa4bd;
+            --shadow-color: rgba(0, 0, 0, 0.6);
+        }
 
-body{
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#0b1a2b,#0f2438);
-    color:#e6edf3;
-    overflow-x: hidden;
-}
+        body.light-mode {
+            /* Preview Light Mode Theme Colors */
+            --bg-gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --nav-bg: #ffffff;
+            --card-bg: #ffffff;
+            --border-color: #cbd5e1;
+            --accent-color: #0284c7; /* Darker blue for visibility on light surfaces */
+            --accent-hover: #0369a1;
+            --input-bg: #f8fafc;
+            --header-gradient: linear-gradient(90deg, #0284c7, #0369a1);
+            --footer-text: #475569;
+            --shadow-color: rgba(148, 163, 184, 0.3);
+        }
 
-header{
-    text-align:center;
-    padding:40px 20px;
-    border-bottom:1px solid #1f3a52;
-    animation:fadeDown 1s ease;
-}
+        *{margin:0;padding:0;box-sizing:border-box;}
 
-h1{
-    font-size:30px;
-    background:linear-gradient(90deg,#4cc9f0,#00b4d8);
-    -webkit-background-clip:text;
-    color:transparent;
-}
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
 
-header p{color:#9fb3c8;margin-top:5px;}
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--border-color);
+            animation: fadeDown 1s ease;
+            transition: border-color 0.3s ease;
+        }
 
-nav{
-    display:flex;
-    justify-content:center;
-    flex-wrap: wrap;
-    gap:15px;
-    background:#0f2438;
-    padding:12px;
-    position:sticky;
-    top:0;
-    z-index: 1000;
-}
+        h1 {
+            font-size: 30px;
+            background: var(--header-gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+            transition: background 0.3s ease;
+        }
 
-nav a{
-    color:#9fb3c8;
-    text-decoration:none;
-    position:relative;
-    font-size: 14px;
-}
+        header p {
+            color: var(--text-muted);
+            margin-top: 5px;
+            transition: color 0.3s ease;
+        }
 
-nav a:hover{color:#4cc9f0;}
+        /* Cleaned Header Social Links Container */
+        .header-social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
 
-nav a::after{
-    content:"";
-    position:absolute;
-    bottom:-4px;
-    left:0;
-    width:0%;
-    height:2px;
-    background:#4cc9f0;
-    transition:.3s;
-}
+        .header-social-links a {
+            color: var(--accent-color);
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
 
-nav a:hover::after{width:100%;}
+        .header-social-links a:hover {
+            color: var(--text-main);
+            transform: translateY(-3px);
+        }
 
-section{
-    max-width:900px;
-    margin:auto;
-    padding:30px 20px;
-    animation:fadeUp 1s ease;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: var(--nav-bg);
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
 
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            position: relative;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
 
-.card{
-    background:#162d44;
-    padding:15px;
-    margin-top:10px;
-    border-radius:12px;
-    border:1px solid #1f3a52;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-}
+        nav a:hover { color: var(--accent-color); }
 
-/* 1. MOUSE HOVER (For Computer) */
-.card:hover {
-    transform:translateY(-6px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.6);
-    border-color:#4cc9f0;
-}
-.card:hover p, .card:hover li { color:#d9f3ff; }
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent-color);
+            transition: .3s;
+        }
 
-/* 2. AUTOMATIC SCROLL EFFECT (For Mobile/Tablet) */
-.card.active-scroll {
-    transform:translateY(-6px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.6);
-    border-color:#4cc9f0;
-}
-.card.active-scroll p, .card.active-scroll li { color:#d9f3ff; }
+        nav a:hover::after { width: 100%; }
 
-ul{padding-left:20px;}
+        /* FORM SECTION PANEL */
+        section {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            animation: fadeUp 1s ease;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
 
-.icon{
-    color:#4cc9f0;
-    margin-right:8px;
-}
+        h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
 
-footer{
-    text-align:center;
-    padding:20px;
-    border-top:1px solid #1f3a52;
-    margin-top:30px;
-    color:#8aa4bd;
-}
+        /* FORM FIELD ELEMENTS */
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-/* RESPONSIVE DESIGN BREAKPOINTS */
-@media (max-width: 768px) {
-    h1 { font-size: 24px; }
-    nav { gap: 10px; padding: 10px; }
-    nav a { font-size: 13px; }
-    section { padding: 20px 15px; }
-    h2 { font-size: 20px; }
-}
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
 
-@media (max-width: 480px) {
-    header { padding: 30px 10px; }
-    h1 { font-size: 20px; }
-    nav { gap: 8px; }
-    nav a { font-size: 12px; }
-}
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--input-bg);
+            color: var(--text-main);
+            font-size: 16px;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
 
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(20px);} 
-    to{opacity:1;transform:translateY(0);} 
-}
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-color);
+            color: #0b1a2b;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
 
-@keyframes fadeDown{
-    from{opacity:0;transform:translateY(-20px);} 
-    to{opacity:1;transform:translateY(0);} 
-}
+        button[type="submit"]:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
 
-/* FORM SECTION */
-section {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #162d44;
-    border-radius: 12px;
-    border: 1px solid #1f3a52;
-}
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+            color: var(--footer-text);
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
 
-h2 {
-    color: #4cc9f0;
-    margin-bottom: 20px;
-    text-align: center;
-}
+        /* RESPONSIVE DESIGN BREAKPOINTS */
+        @media (max-width: 768px) {
+            h1 { font-size: 24px; }
+            nav { gap: 10px; padding: 10px; }
+            nav a { font-size: 13px; }
+            section { padding: 20px 15px; margin: 30px auto; }
+            h2 { font-size: 20px; }
+        }
 
-/* FORM */
-.form-group {
-    margin-bottom: 15px;
-}
+        @media (max-width: 480px) {
+            header { padding: 30px 10px; }
+            h1 { font-size: 20px; }
+            nav { gap: 8px; }
+            nav a { font-size: 12px; }
+        }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #9fb3c8;
-}
+        @keyframes fadeUp{
+            from{opacity:0;transform:translateY(20px);} 
+            to{opacity:1;transform:translateY(0);} 
+        }
 
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #1f3a52;
-    background: #0b1a2b;
-    color: white;
-    font-size: 16px;
-}
+        @keyframes fadeDown{
+            from{opacity:0;transform:translateY(-20px);} 
+            to{opacity:1;transform:translateY(0);} 
+        }
 
-button {
-    width: 100%;
-    padding: 12px;
-    background: #4cc9f0;
-    color: #0b1a2b;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        /* FLOATING THEME TOGGLE BUTTON STYLE */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: #0b1a2b;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+        }
 
-button:hover {
-    background: #00b4d8;
-    transform: translateY(-2px);
-}
-</style>
+        .theme-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
 
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-	<link rel="icon" type="image/png" href="favicon.png">
-	
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
-
 <body>
 
-<!-- HEADER -->
 <header>
     <h1>Nisal Danuja Ranasinghe</h1>
-	 <p>Student | ICT Enthusiast | Leader</p>
-   <p> <h1><a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" style="color:#4cc9f0;text-decoration:none;"> 
-    <i class="fa-brands fa-linkedin icon"></i></a>
-	    	<a href="contact.html" target="_blank" style="color:#4cc9f0;text-decoration:none;"> 
-    <i class="fa-solid fa-envelope-open"></i></a>
-
-	</h1></p>
+    <p>Student | ICT Enthusiast | Leader</p>
+    
+    <div class="header-social-links">
+        <a href="profile.html" target="_blank" title="LinkedIn Profile"> 
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="contact.html" title="Contact Email"> 
+            <i class="fa-solid fa-envelope-open"></i>
+        </a>
+    </div>
 </header>
 
-
-<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
-	<a href="contact.html#skills">Contact</a>
-	<a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+    <a href="resume.html">Resume</a>
 </nav>
 
-<!-- CONTACT FORM -->
 <section>
     <h2>Get In Touch</h2>
 
     <form action="https://formspree.io/f/xeenooyd" method="POST" onsubmit="showPopup()">
         <div class="form-group">
             <label>Your Name*</label>
-            <input type="text" name="name">
+            <input type="text" name="name" required>
         </div>
 
         <div class="form-group">
             <label>Your Email*</label>
-            <input type="email" name="email">
+            <input type="email" name="email" required>
         </div>
 		
-		<div class="form-group">
+        <div class="form-group">
             <label>Your Contact Number</label>
             <input type="number" name="number">
         </div>
-		
-		
 
         <div class="form-group">
             <label>Message*</label>
-            <textarea name="message" rows="5"></textarea>
+            <textarea name="message" rows="5" required></textarea>
         </div>
 
         <button type="submit">Send Message</button>
-
-
     </form>
 </section>
 
-
-
-<!-- FOOTER -->
 <footer>
     <p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
 </footer>
 
+<button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Light and Dark Theme">
+    <i class="fa-solid fa-sun"></i>
+</button>
+
+<script>
+    // 1. Theme Switcher Logic 
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = themeToggleBtn.querySelector('i');
+
+    themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon'); // Switch to moon icon in light mode
+        } else {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun'); // Switch back to sun icon in dark mode
+        }
+    });
+
+    // Placeholder function for SweetAlert submit event
+    function showPopup() {
+        // Your custom form submission popup script
+    }
+</script>
 	
 </body>
 </html>
