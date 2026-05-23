@@ -20,6 +20,9 @@
             --header-gradient: linear-gradient(90deg, #4cc9f0, #00b4d8);
             --btn-bg: #1e3a5f;
             --btn-hover: #2a4b7c;
+            --input-bg: #0b1a2b;
+            --footer-text: #8aa4bd;
+            --shadow-color: rgba(0, 0, 0, 0.6);
         }
 
         body.light-mode {
@@ -34,6 +37,9 @@
             --header-gradient: linear-gradient(90deg, #0284c7, #0369a1);
             --btn-bg: #e2e8f0;
             --btn-hover: #cbd5e1;
+            --input-bg: #f8fafc;
+            --footer-text: #475569;
+            --shadow-color: rgba(148, 163, 184, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,10 +51,52 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
             transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* NAVIGATION (Matches your other pages) */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--border-color);
+            animation: fadeDown 1s ease;
+            transition: border-color 0.3s ease;
+        }
+
+        h1 {
+            font-size: 30px;
+            background: var(--header-gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+            transition: background 0.3s ease;
+        }
+
+        header p {
+            color: var(--text-muted);
+            margin-top: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .header-social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header-social-links a {
+            color: var(--accent-color);
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .header-social-links a:hover {
+            color: var(--text-main);
+            transform: translateY(-3px);
+        }
+
+        /* NAVIGATION */
         nav {
             display: flex;
             justify-content: center;
@@ -56,7 +104,11 @@
             gap: 15px;
             background: var(--nav-bg);
             padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease;
         }
 
         nav a {
@@ -68,6 +120,19 @@
         }
 
         nav a:hover { color: var(--accent-color); }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent-color);
+            transition: .3s;
+        }
+
+        nav a:hover::after { width: 100%; }
 
         /* CALCULATOR STYLES */
         .calc-wrapper {
@@ -85,14 +150,14 @@
             padding: 25px;
             width: 100%;
             max-width: 350px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: background 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .calc-display {
             width: 100%;
             height: 60px;
-            background: var(--bg-gradient);
+            background: var(--input-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             margin-bottom: 20px;
@@ -101,6 +166,7 @@
             font-size: 28px;
             color: var(--text-main);
             outline: none;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         .calc-buttons {
@@ -137,285 +203,25 @@
         }
         .btn-clear:hover { background: #dc2626; }
 
-        /* THEME TOGGLE BUTTON */
-        .theme-toggle-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            color: #0b1a2b;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-         /* CSS VARIABLES MANAGEMENT FOR LIGHT/DARK THEMES */
-        :root {
-            /* Default Dark Mode Theme Colors */
-            --bg-gradient: linear-gradient(135deg, #0b1a2b, #0f2438);
-            --text-main: #e6edf3;
-            --text-muted: #9fb3c8;
-            --nav-bg: #0f2438;
-            --card-bg: #162d44;
-            --border-color: #1f3a52;
-            --accent-color: #4cc9f0;
-            --accent-hover: #00b4d8;
-            --input-bg: #0b1a2b;
-            --header-gradient: linear-gradient(90deg, #4cc9f0, #00b4d8);
-            --footer-text: #8aa4bd;
-            --shadow-color: rgba(0, 0, 0, 0.6);
-        }
-
-        body.light-mode {
-            /* Preview Light Mode Theme Colors */
-            --bg-gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --nav-bg: #ffffff;
-            --card-bg: #ffffff;
-            --border-color: #cbd5e1;
-            --accent-color: #0284c7; /* Darker blue for visibility on light surfaces */
-            --accent-hover: #0369a1;
-            --input-bg: #f8fafc;
-            --header-gradient: linear-gradient(90deg, #0284c7, #0369a1);
-            --footer-text: #475569;
-            --shadow-color: rgba(148, 163, 184, 0.3);
-        }
-
-        *{margin:0;padding:0;box-sizing:border-box;}
-
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-main);
-            overflow-x: hidden;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            border-bottom: 1px solid var(--border-color);
-            animation: fadeDown 1s ease;
-            transition: border-color 0.3s ease;
-        }
-
-        h1 {
-            font-size: 30px;
-            background: var(--header-gradient);
-            -webkit-background-clip: text;
-            color: transparent;
-            transition: background 0.3s ease;
-        }
-
-        header p {
-            color: var(--text-muted);
-            margin-top: 5px;
-            transition: color 0.3s ease;
-        }
-
-        /* Cleaned Header Social Links Container */
-        .header-social-links {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .header-social-links a {
-            color: var(--accent-color);
-            font-size: 24px;
-            text-decoration: none;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .header-social-links a:hover {
-            color: var(--text-main);
-            transform: translateY(-3px);
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            background: var(--nav-bg);
-            padding: 12px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: background 0.3s ease;
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            position: relative;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover { color: var(--accent-color); }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: var(--accent-color);
-            transition: .3s;
-        }
-
-        nav a:hover::after { width: 100%; }
-
-        section {
-            max-width: 900px;
-            margin: auto;
-            padding: 30px 20px;
-            animation: fadeUp 1s ease;
-        }
-
-        h2 {
-            border-left: 4px solid var(--accent-color);
-            padding-left: 10px;
-            margin-bottom: 15px;
-            font-size: 22px;
-            transition: border-color 0.3s ease;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 15px;
-            margin-top: 10px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, background 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 25px var(--shadow-color);
-            border-color: var(--accent-color);
-        }
-        .card:hover p, .card:hover li { color: var(--accent-hover); }
-
-        .card.active-scroll {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 25px var(--shadow-color);
-            border-color: var(--accent-color);
-        }
-        .card.active-scroll p, .card.active-scroll li { color: var(--accent-hover); }
-
-        ul { padding-left: 20px; }
-
-        .icon {
-            color: var(--accent-color);
-            margin-right: 8px;
-            transition: color 0.3s ease;
-        }
-
+        /* UPDATED FOOTER STYLES */
         footer {
+            width: 100%;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+            background: transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .footer-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             max-width: 900px;
-            margin: 30px auto 0 auto;
+            margin: 0 auto;
             padding: 20px;
-            border-top: 1px solid var(--border-color);
             color: var(--footer-text);
-            transition: border-color 0.3s ease, color 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 24px; }
-            nav { gap: 10px; padding: 10px; }
-            nav a { font-size: 13px; }
-            section { padding: 20px 15px; }
-            h2 { font-size: 20px; }
-            footer {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header { padding: 30px 10px; }
-            h1 { font-size: 20px; }
-            nav { gap: 8px; }
-            nav a { font-size: 12px; }
-        }
-
-        @keyframes fadeUp{
-            from{opacity:0;transform:translateY(20px);} 
-            to{opacity:1;transform:translateY(0);} 
-        }
-
-        @keyframes fadeDown{
-            from{opacity:0;transform:translateY(-20px);} 
-            to{opacity:1;transform:translateY(0);} 
-        }
-
-        .background_form {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: background 0.3s ease, border-color 0.3s ease;
-        }
-            
-        .background_form > h2 {
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            text-align: center;
-            border-left: none !important;
             transition: color 0.3s ease;
-        }
-
-        .form-group { margin-bottom: 15px; }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--text-muted);
-            transition: color 0.3s ease;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background: var(--input-bg);
-            color: var(--text-main);
-            font-size: 16px;
-            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-
-        button[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            background: var(--accent-color);
-            color: #0b1a2b;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button[type="submit"]:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
         }
 
         .social-links {
@@ -436,7 +242,7 @@
             transform: translateY(-3px);
         }
 
-        /* FLOATING THEME TOGGLE BUTTON STYLE */
+        /* THEME TOGGLE BUTTON */
         .theme-toggle-btn {
             position: fixed;
             bottom: 25px;
@@ -460,15 +266,38 @@
         .theme-toggle-btn:hover {
             transform: scale(1.1);
         }
-        
-    </style>
 
-        <link rel="icon" type="image/png" href="favicon.png">
-    
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            h1 { font-size: 24px; }
+            nav { gap: 10px; padding: 10px; }
+            nav a { font-size: 13px; }
+            
+            /* Target the new inner container for mobile layout */
+            .footer-inner {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 30px 10px; }
+            h1 { font-size: 20px; }
+            nav { gap: 8px; }
+            nav a { font-size: 12px; }
+        }
+
+        @keyframes fadeDown{
+            from{opacity:0;transform:translateY(-20px);} 
+            to{opacity:1;transform:translateY(0);} 
+        }
+    </style>
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
 
-    <header>
+<header>
     <h1>Nisal Danuja Ranasinghe</h1>
     <p>Student | ICT Enthusiast | Leader</p>
     
@@ -523,22 +352,24 @@
 <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Light and Dark Theme">
     <i class="fa-solid fa-sun"></i>
 </button>
-    <footer>
-    <p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
 
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" class="social-icon">
-            <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/nisaldanuja" target="_blank" class="social-icon">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="contact.html" target="_blank" class="social-icon">
-            <i class="fa-solid fa-envelope"></i>
-        </a>
+<footer>
+    <div class="footer-inner">
+        <p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/nisaldanuja" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="contact.html" target="_blank" class="social-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
     </div>
 </footer>
-
 
 <script>
     // 1. Calculator Logic
@@ -558,7 +389,6 @@
 
     function calculate() {
         try {
-            // eval() does the mathematical calculation automatically
             display.value = eval(display.value);
         } catch (error) {
             display.value = 'Error';
