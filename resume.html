@@ -189,19 +189,26 @@
             border: none;
         }
 
-        /* UPDATED FOOTER TO ALIGN IN ONE LINE */
+
+        /* UPDATED FOOTER STYLES */
         footer {
+            width: 100%;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+            background: transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .footer-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             max-width: 900px;
-            width: 100%;
-            margin: 30px auto 0 auto;
+            margin: 0 auto;
             padding: 20px;
-            border-top: 1px solid var(--border-color);
             color: var(--footer-text);
-            transition: border-color 0.3s ease, color 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .social-links {
@@ -212,15 +219,16 @@
 
         .social-icon {
             font-size: 24px;
-            color: var(--social-white); 
+            color: var(--text-main);
             transition: transform 0.3s ease, color 0.3s ease;
             text-decoration: none;
         }
 
         .social-icon:hover {
-            color: var(--accent-color); 
-            transform: translateY(-3px); 
+            color: var(--accent-color);
+            transform: translateY(-3px);
         }
+
 
         /* RESPONSIVE DESIGN BREAKPOINTS */
         @media (max-width: 768px) {
