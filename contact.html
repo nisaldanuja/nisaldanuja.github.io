@@ -199,10 +199,14 @@
         }
 
         footer {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 30px auto 0 auto;
             padding: 20px;
             border-top: 1px solid var(--border-color);
-            margin-top: 30px;
             color: var(--footer-text);
             transition: border-color 0.3s ease, color 0.3s ease;
         }
