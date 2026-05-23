@@ -257,6 +257,26 @@
         .theme-toggle-btn:hover {
             transform: scale(1.1);
         }
+
+		.social-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            font-size: 24px;
+            color: var(--text-main);
+            transition: transform 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+
     </style>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -313,7 +333,19 @@
 </section>
 
 <footer>
+
     <p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
+
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/nisaldanujaranasinghe/" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/nisaldanuja" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="contact.html" target="_blank" class="social-icon">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
 </footer>
 
 <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Light and Dark Theme">
