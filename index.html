@@ -185,18 +185,6 @@
             transition: color 0.3s ease;
         }
 
-        footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 30px auto 0 auto;
-            padding: 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--footer-text);
-            transition: border-color 0.3s ease, color 0.3s ease;
-        }
 
         @media (max-width: 768px) {
             h1 { font-size: 24px; }
@@ -281,6 +269,26 @@
         button[type="submit"]:hover {
             background: var(--accent-hover);
             transform: translateY(-2px);
+        }
+		
+        footer {
+            width: 100%;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+            background: transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: var(--footer-text);
+            transition: color 0.3s ease;
         }
 
         .social-links {
@@ -461,6 +469,7 @@
 </section>
     
 <footer>
+	    <div class="footer-inner">
     <p>© 2026 Nisal Ranasinghe | Portfolio Website</p>
 
     <div class="social-links">
