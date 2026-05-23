@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | Nisal Danuja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        /* CSS VARIABLES FOR LIGHT/DARK MODE */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0b1a2b, #0f2438);
+            --text-main: #e6edf3;
+            --text-muted: #9fb3c8;
+            --nav-bg: #0f2438;
+            --card-bg: #162d44;
+            --border-color: #1f3a52;
+            --accent-color: #4cc9f0;
+            --accent-hover: #00b4d8;
+            --header-gradient: linear-gradient(90deg, #4cc9f0, #00b4d8);
+            --btn-bg: #1e3a5f;
+            --btn-hover: #2a4b7c;
+        }
+
+        body.light-mode {
+            --bg-gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --nav-bg: #ffffff;
+            --card-bg: #ffffff;
+            --border-color: #cbd5e1;
+            --accent-color: #0284c7;
+            --accent-hover: #0369a1;
+            --header-gradient: linear-gradient(90deg, #0284c7, #0369a1);
+            --btn-bg: #e2e8f0;
+            --btn-hover: #cbd5e1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* NAVIGATION (Matches your other pages) */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: var(--nav-bg);
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            position: relative;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover { color: var(--accent-color); }
+
+        /* CALCULATOR STYLES */
+        .calc-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .calc-display {
+            width: 100%;
+            height: 60px;
+            background: var(--bg-gradient);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: right;
+            padding: 10px;
+            font-size: 28px;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        .calc-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .calc-btn {
+            padding: 15px;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            background: var(--btn-bg);
+            color: var(--text-main);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .calc-btn:hover { background: var(--btn-hover); }
+        .calc-btn:active { transform: scale(0.95); }
+
+        .btn-accent {
+            background: var(--accent-color);
+            color: #0b1a2b;
+            font-weight: bold;
+        }
+        .btn-accent:hover { background: var(--accent-hover); }
+
+        .btn-clear {
+            background: #ef4444;
+            color: white;
+            font-weight: bold;
+        }
+        .btn-clear:hover { background: #dc2626; }
+
+        /* THEME TOGGLE BUTTON */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: #0b1a2b;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="resume.html">Resume</a>
+</nav>
+
+<div class="calc-wrapper">
+    <div class="calculator">
+        <input type="text" id="display" class="calc-display" disabled value="0">
+        
+        <div class="calc-buttons">
+            <button class="calc-btn btn-clear" onclick="clearDisplay()">C</button>
+            <button class="calc-btn btn-accent" onclick="appendValue('(')">(</button>
+            <button class="calc-btn btn-accent" onclick="appendValue(')')">)</button>
+            <button class="calc-btn btn-accent" onclick="appendValue('/')">÷</button>
+
+            <button class="calc-btn" onclick="appendValue('7')">7</button>
+            <button class="calc-btn" onclick="appendValue('8')">8</button>
+            <button class="calc-btn" onclick="appendValue('9')">9</button>
+            <button class="calc-btn btn-accent" onclick="appendValue('*')">×</button>
+
+            <button class="calc-btn" onclick="appendValue('4')">4</button>
+            <button class="calc-btn" onclick="appendValue('5')">5</button>
+            <button class="calc-btn" onclick="appendValue('6')">6</button>
+            <button class="calc-btn btn-accent" onclick="appendValue('-')">−</button>
+
+            <button class="calc-btn" onclick="appendValue('1')">1</button>
+            <button class="calc-btn" onclick="appendValue('2')">2</button>
+            <button class="calc-btn" onclick="appendValue('3')">3</button>
+            <button class="calc-btn btn-accent" onclick="appendValue('+')">+</button>
+
+            <button class="calc-btn" onclick="appendValue('0')" style="grid-column: span 2;">0</button>
+            <button class="calc-btn" onclick="appendValue('.')">.</button>
+            <button class="calc-btn btn-accent" onclick="calculate()">=</button>
+        </div>
+    </div>
+</div>
+
+<button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Light and Dark Theme">
+    <i class="fa-solid fa-sun"></i>
+</button>
+
+<script>
+    // 1. Calculator Logic
+    const display = document.getElementById('display');
+
+    function appendValue(value) {
+        if (display.value === '0' || display.value === 'Error') {
+            display.value = value;
+        } else {
+            display.value += value;
+        }
+    }
+
+    function clearDisplay() {
+        display.value = '0';
+    }
+
+    function calculate() {
+        try {
+            // eval() does the mathematical calculation automatically
+            display.value = eval(display.value);
+        } catch (error) {
+            display.value = 'Error';
+        }
+    }
+
+    // 2. Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = themeToggleBtn.querySelector('i');
+
+    themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        if (document.body.classList.contains('light-mode')) {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        } else {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+    });
+</script>
+
+</body>
+</html>
