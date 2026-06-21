@@ -19,40 +19,42 @@
 
     <style>
         /* CSS VARIABLES MANAGEMENT FOR LIGHT/DARK THEMES */
-        :root {
-		
-/* Default light Mode Theme Colors */	
-body.light-mode {
-            /* Preview Light Mode Theme Colors */
-            --bg-gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --nav-bg: #ffffff;
-            --card-bg: #ffffff;
-            --border-color: #cbd5e1;
-            --accent-color: #0284c7; /* Darker blue for visibility on light surfaces */
-            --accent-hover: #0369a1;
-            --input-bg: #f8fafc;
-            --header-gradient: linear-gradient(90deg, #0284c7, #0369a1);
-            --footer-text: #475569;
-            --shadow-color: rgba(148, 163, 184, 0.3);
-        }
+/* CSS VARIABLES MANAGEMENT - LIGHT MODE IS NOW DEFAULT */
+:root {
+    /* Default Light Mode Theme Colors */
+    --bg-gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --nav-bg: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: #cbd5e1;
+    --accent-color: #0284c7; 
+    --accent-hover: #0369a1;
+    --btn-bg: #e2e8f0;
+    --btn-hover: #cbd5e1;
+    --input-bg: #f8fafc;
+    --header-gradient: linear-gradient(90deg, #0284c7, #0369a1);
+    --footer-text: #475569;
+    --shadow-color: rgba(148, 163, 184, 0.3);
+}
 
-   dark mode
-            --bg-gradient: linear-gradient(135deg, #0b1a2b, #0f2438);
-            --text-main: #e6edf3;
-            --text-muted: #9fb3c8;
-            --nav-bg: #0f2438;
-            --card-bg: #162d44;
-            --border-color: #1f3a52;
-            --accent-color: #4cc9f0;
-            --accent-hover: #00b4d8;
-            --input-bg: #0b1a2b;
-            --header-gradient: linear-gradient(90deg, #4cc9f0, #00b4d8);
-            --footer-text: #8aa4bd;
-            --shadow-color: rgba(0, 0, 0, 0.6);
-        }
-
+body.dark-mode {
+    /* Secondary Dark Mode Theme Colors */
+    --bg-gradient: linear-gradient(135deg, #0b1a2b, #0f2438);
+    --text-main: #e6edf3;
+    --text-muted: #9fb3c8;
+    --nav-bg: #0f2438;
+    --card-bg: #162d44;
+    --border-color: #1f3a52;
+    --accent-color: #4cc9f0;
+    --accent-hover: #00b4d8;
+    --btn-bg: #1e3a5f;
+    --btn-hover: #2a4b7c;
+    --input-bg: #0b1a2b;
+    --header-gradient: linear-gradient(90deg, #4cc9f0, #00b4d8);
+    --footer-text: #8aa4bd;
+    --shadow-color: rgba(0, 0, 0, 0.6);
+}
         *{margin:0;padding:0;box-sizing:border-box;}
 
         body {
